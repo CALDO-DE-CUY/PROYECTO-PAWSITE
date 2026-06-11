@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Adopción - Huellitas Cálidas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        latte: {
+                            50: '#FDFBF7',  // Fondo crema suave
+                            100: '#F4EFE6', // Arena claro
+                            200: '#E6DCC8', // Beige
+                        },
+                        cafe: {
+                            600: '#A07855', // Avellana
+                            700: '#8A5A36', // Terracota
+                            800: '#51331E', // Chocolate
+                            900: '#362214', // Café profundo
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-latte-50 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- BARRA DE NAVEGACIÓN MINIMALISTA CON FILTROS INTEGRADOS -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-latte-100 px-6 py-3 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <!-- Logo -->
+            <a href="ini.html" class="flex items-center gap-2.5 group shrink-0">
+                <div class="w-9 h-9 bg-amber-100 text-cafe-700 rounded-xl flex items-center justify-center text-base shadow-sm group-hover:bg-cafe-800 group-hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-paw"></i>
+                </div>
+                <span class="text-lg font-bold text-cafe-900 tracking-tight">Paw<span class="text-cafe-600 font-medium">Site</span></span>
+            </a>
+            <button class="text-stone-400 hover:text-cafe-700 transition-colors p-2 relative group/bell" title="Notificaciones">
+                <i class="fa-solid fa-bell text-lg"></i>
+                <span class="absolute top-1.5 right-2 w-2 h-2 bg-cafe-700 rounded-full border border-white"></span>
+            </button>
+
+            <button onclick="toggleModal('modal-perfil-simulado')" class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Mi Perfil">
+                <i class="fa-solid fa-user text-base"></i>
+            </button>
+
+            <!-- SISTEMA DE FILTROS INTEGRADO (Solo visible en la sección catálogo) -->
+            <div id="nav-filters" class="flex flex-wrap items-center justify-center gap-2 bg-stone-100/80 p-1 rounded-2xl border border-stone-200/40 w-full md:w-auto transition-all duration-300">
+                <!-- Buscador con Lupita -->
+                <div class="relative min-w-[140px] flex-1 md:flex-initial">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-stone-400">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                    </span>
+                    <input type="text" id="search-input" oninput="filterPets()" class="w-full bg-white pl-8 pr-3 py-1.5 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-cafe-600 text-stone-800 placeholder-stone-400" placeholder="Buscar por nombre...">
+                </div>
+                
+                <!-- Filtro Especie -->
+                <select id="filter-especie" onchange="filterPets()" class="bg-transparent px-2.5 py-1.5 text-xs focus:outline-none text-stone-600 font-medium cursor-pointer rounded-xl hover:bg-white/50 transition-colors">
+                    <option value="todos">Especie</option>
+                    <option value="perro">🐶 Perros</option>
+                    <option value="gato">🐱 Gatos</option>
+                    <option value="Erizo">Erizo</option>
+                </select>
+
+                <!-- Filtro Raza -->
+                <select id="filter-raza" onchange="filterPets()" class="bg-transparent px-2.5 py-1.5 text-xs focus:outline-none text-stone-600 font-medium cursor-pointer rounded-xl hover:bg-white/50 transition-colors">
+                    <option value="todos">Raza</option>
+                    <option value="golden retriever">Golden Retriever</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="siamés mix">Siamés Mix</option>
+                    <option value="mestizo / criollo">Mestizo / Criollo</option>
+                </select>
+
+                <!-- Filtro Edad -->
+                <select id="filter-edad" onchange="filterPets()" class="bg-transparent px-2.5 py-1.5 text-xs focus:outline-none text-stone-600 font-medium cursor-pointer rounded-xl hover:bg-white/50 transition-colors">
+                    <option value="todos">Edad</option>
+                    <option value="cachorro">Cachorro</option>
+                    <option value="joven">Joven</option>
+                    <option value="adulto">Adulto</option>
+                </select>
+            </div>
+
+            <!-- Botones Derecho -->
+            <div class="flex items-center gap-4 shrink-0">
+                <button onclick="showSection('catalogo-section')" class="text-xs font-semibold text-cafe-800 hover:text-cafe-900 transition-colors">Ver Catálogo</button>
+                <a href="Pagina de Registro e Inicio de sesion.html" class="px-3.5 py-1.5 text-xs font-semibold text-white bg-cafe-800 hover:bg-cafe-900 rounded-xl transition-all duration-300">Panel Rescatista</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN DEL CATÁLOGO -->
+    <main id="catalogo-section" class="flex-1 max-w-6xl mx-auto w-full px-6 py-10 transition-all duration-300">
+        <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+            <h1 class="text-3xl font-black text-cafe-900">Nuestros Peluditos Buscando Hogar</h1>
+            <p class="text-stone-600 text-sm">Cada uno de ellos tiene una historia de superación y un montón de amor incondicional listo para regalarte.</p>
+        </div>
+
+        <!-- Mensaje de no resultados (Mantenido con el diseño minimalista) -->
+        <div id="no-results" class="text-center py-12 text-stone-500 text-sm hidden bg-white rounded-3xl border border-stone-200/60 max-w-lg mx-auto mb-10">
+            <i class="fa-solid fa-paw text-2xl mb-2 block text-stone-300"></i>
+            No se encontraron peluditos que coincidan con tu búsqueda.
+        </div>
+
+        <!-- CONTENEDOR DE TARJETAS -->
+        <div id="pets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+            <!-- Pancho -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="pancho" data-especie="perro" data-raza="mestizo / criollo" data-edad="adulto">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1535268647977-a403b69fc756?auto=format&fit=crop&q=80&w=600" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐶 Perro</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Pancho</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo / Criollo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 3 Años</span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Pancho fue rescatado de una tormenta. Es sumamente leal, tranquilo, educado y camina perfecto con correa. Ideal para departamentos o familias que buscan un perro calmado.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Pancho')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Pancho <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SECCIÓN FORMULARIO -->
+    <section id="formulario-section" class="hidden flex-1 max-w-3xl mx-auto w-full px-6 py-10 transition-all duration-300">
+        
+        <button onclick="showSection('catalogo-section')" class="mb-6 flex items-center text-sm font-semibold text-cafe-700 hover:text-cafe-900 transition-colors">
+            <i class="fa-solid fa-arrow-left mr-2 text-xs"></i> Volver al catálogo
+        </button>
+
+        <div class="bg-white p-8 md:p-10 rounded-3xl border border-stone-200 shadow-xl space-y-8">
+            <div class="text-center border-b border-stone-100 pb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-cafe-600">Solicitud Oficial</span>
+                <h2 class="text-3xl font-black text-cafe-900 mt-1">Formulario de Adopción Responsable</h2>
+                <p class="text-stone-500 text-sm mt-1">Estás aplicando para adoptar a: <span id="pet-placeholder" class="font-bold text-cafe-800 underline">Mascota</span></p>
+            </div>
+
+            <form onsubmit="submitForm(event)" class="space-y-6" novalidate>
+                <div class="space-y-4">
+                    <h3 class="text-base font-bold text-cafe-900 flex items-center gap-2"><i class="fa-solid fa-user text-sm text-cafe-600"></i> 1. Información Personal</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">Nombre Completo</label>
+                            <input type="text" oninput="resetStyle(this)" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">Edad del solicitante</label>
+                            <input type="number" oninput="resetStyle(this)" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40" placeholder="Ej: 25">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">Teléfono de Contacto</label>
+                            <input type="tel" oninput="resetStyle(this)" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40" placeholder="Ej: +52 ...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">Correo Electrónico</label>
+                            <input type="email" oninput="resetStyle(this)" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40" placeholder="tu@correo.com">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-stone-100">
+                    <h3 class="text-base font-bold text-cafe-900 flex items-center gap-2"><i class="fa-solid fa-house text-sm text-cafe-600"></i> 2. Entorno y Vivienda</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">Tipo de Vivienda</label>
+                            <select class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-white">
+                                <option>Casa con jardín propio</option>
+                                <option>Casa sin jardín / patio</option>
+                                <option>Departamento / Piso</option>
+                                <option>Finca / Terreno Rural</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">¿Es propiedad o alquiler?</label>
+                            <select class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-white">
+                                <option>Propia (Dueño)</option>
+                                <option>Rentada (Tengo permiso de mascotas)</option>
+                                <option>Vivo con mis padres / familiares</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">¿Todas las personas en casa están de acuerdo con la adopción?</label>
+                        <select class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-white">
+                            <option>Sí, todos están completamente de acuerdo</option>
+                            <option>Hay algunas dudas, pero lo aceptan</option>
+                            <option>No lo he consultado con todos todavía</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-stone-100">
+                    <h3 class="text-base font-bold text-cafe-900 flex items-center gap-2"><i class="fa-solid fa-hand-holding-heart text-sm text-cafe-600"></i> 3. Estilo de vida y Cuidado</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">¿Cuántas horas pasará solo al día?</label>
+                            <input type="text" oninput="resetStyle(this)" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40" placeholder="Ej: 4 horas">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">¿Tienes actualmente otras mascotas?</label>
+                            <input type="text" oninput="resetStyle(this)" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40" placeholder="Ej: Sí, un perro de 5 años / No tengo">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 uppercase mb-1.5">Motivo por el cual deseas adoptar y qué harías si surge un imprevisto (viaje, mudanza, gastos médicos...)</label>
+                        <textarea rows="4" oninput="resetStyle(this)" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 bg-stone-50/40" placeholder="Por favor detalla brevemente tu postura sobre el compromiso a largo plazo..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-4 rounded-xl transition-all duration-300 text-sm shadow-md mt-4 shadow-cafe-900/10">
+                    Enviar Solicitud de Adopción Responsable
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-white border-t border-latte-100 py-6 text-center text-xs text-stone-500 w-full">
+        <p>&copy; 2026 PAW SITE. Hecho con <i class="fa-solid fa-heart text-amber-600"></i> para los animales.</p>
+
+        <div class="flex items-center justify-center gap-5 text-xl text-stone-400 mt-2"> 
+            <a href="https://www.instagram.com/pawsite2026?igsh=a2F4ZDl3NGRianlm" target="_blank" rel="noopener noreferrer" class="hover:text-cafe-700 transition-colors">
+                <i class="fa-brands fa-instagram"></i>
+            </a> 
+            <a href="https://www.facebook.com/profile.php?id=61590693212306&rdid=WJ3HdioJNlmnoJ4v&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Tot5ztaeW%2F#" target="_blank" rel="noopener noreferrer" class="hover:text-cafe-700 transition-colors">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+             <a href="https://x.com/PawSite2026" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+             <i class="fa-brands fa-twitter"></i>
+             </a>
+        </div>
+    </footer>
+
+    <script>
+         
+        // FUNCIÓN DE FILTRADO DINÁMICO
+        function filterPets() {
+            const searchValue = document.getElementById('search-input').value.toLowerCase().trim();
+            const especieValue = document.getElementById('filter-especie').value;
+            const razaValue = document.getElementById('filter-raza').value;
+            const edadValue = document.getElementById('filter-edad').value;
+            
+            const cards = document.querySelectorAll('.pet-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const nombre = card.getAttribute('data-nombre');
+                const especie = card.getAttribute('data-especie');
+                const raza = card.getAttribute('data-raza');
+                const edad = card.getAttribute('data-edad');
+
+                const matchesSearch = nombre.includes(searchValue);
+                const matchesEspecie = (especieValue === 'todos' || especie === especieValue);
+                const matchesRaza = (razaValue === 'todos' || raza === razaValue);
+                const matchesEdad = (edadValue === 'todos' || edad === edadValue);
+
+                if (matchesSearch && matchesEspecie && matchesRaza && matchesEdad) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Cambia de sección dinámicamente y oculta los filtros si no estás en el catálogo
+        function showSection(sectionId) {
+            document.getElementById('catalogo-section').classList.add('hidden');
+            document.getElementById('formulario-section').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            const navFilters = document.getElementById('nav-filters');
+            if (sectionId === 'catalogo-section') {
+                navFilters.classList.remove('md:opacity-0', 'pointer-events-none');
+            } else {
+                navFilters.classList.add('md:opacity-0', 'pointer-events-none');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openAdoptionForm(petName) {
+            document.getElementById('pet-placeholder').innerText = petName;
+            showSection('formulario-section');
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const requiredInputs = form.querySelectorAll('input[type="text"], input[type="number"], input[type="tel"], input[type="email"], textarea');
+            let formValid = true;
+
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.remove('border-stone-200', 'focus:border-cafe-600');
+                    input.classList.add('border-red-500', 'focus:border-red-500');
+                    formValid = false;
+                }
+            });
+
+            if (formValid) {
+                alert('¡Tu solicitud ha sido enviada con éxito de manera simulada! El equipo revisará tu perfil.');
+                form.reset();
+                showSection('catalogo-section');
+            }
+        }
+
+        function resetStyle(input) {
+            input.classList.remove('border-red-500', 'focus:border-red-500');
+            input.classList.add('border-stone-200', 'focus:border-cafe-600');
+        }
+    </script>
+</body>
+</html>
