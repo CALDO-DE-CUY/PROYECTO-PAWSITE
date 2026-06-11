@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAW SITE - Plataforma de Adopción</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        latte: {
+                            50: '#FDFBF7',  // Fondo crema ultra suave
+                            100: '#F4EFE6', // Arena claro
+                            200: '#E6DCC8', // Beige café con leche
+                        },
+                        cafe: {
+                            600: '#A07855', // Avellana suave
+                            700: '#8A5A36', // Terracota cálido
+                            800: '#51331E', // Chocolate amargo
+                            900: '#362214', // Café profundo chocolate
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-latte-50 font-sans min-h-screen flex flex-col justify-between selection:bg-cafe-600 selection:text-white">
+
+ <nav class="bg-white/80 backdrop-blur-md border-b border-latte-100 px-6 py-4 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <a href="#" class="flex items-center gap-2.5 group">
+            <div class="w-10 h-10 bg-amber-100 text-cafe-700 rounded-xl flex items-center justify-center text-lg shadow-sm group-hover:bg-cafe-800 group-hover:text-white transition-all duration-300">
+                <i class="fa-solid fa-paw"></i>
+            </div>
+            <span class="text-xl font-bold text-cafe-900 tracking-tight">Paw<span class="text-cafe-600 font-medium">Site</span></span>
+        </a>
+        
+        <div class="hidden sm:flex items-center gap-5">
+            <a href="#" class="text-sm font-medium text-stone-600 hover:text-cafe-900 transition-colors">Inicio</a>
+            <a href="Adoptante.html" class="px-4 py-2 text-sm font-semibold text-cafe-800 bg-latte-100 hover:bg-cafe-900 hover:text-white rounded-xl transition-all duration-300">Ingresar sin registrarse</a>
+            
+            <span class="text-stone-300 hidden sm:inline font-light">|</span>
+
+            <button class="text-stone-400 hover:text-cafe-700 transition-colors p-2 relative group/bell" title="Notificaciones">
+                <i class="fa-solid fa-bell text-lg"></i>
+                <span class="absolute top-1.5 right-2 w-2 h-2 bg-cafe-700 rounded-full border border-white"></span>
+            </button>
+
+            <button onclick="window.location.href='Perfil.html'" class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Mi Perfil">
+                <i class="fa-solid fa-user text-base"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- ================= CONTENIDO PRINCIPAL ================= -->
+    <main class="flex-1 flex flex-col justify-center items-center px-4 py-12 md:py-20 max-w-6xl mx-auto w-full">
+        
+        <!-- Palabras -->
+        <section class="text-center max-w-2xl mb-16 space-y-4">
+            <h1 class="text-4xl md:text-5xl font-black text-cafe-900 leading-tight">
+                Adoptar es la Forma, <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cafe-700 to-cafe-900">Mas pura de Amar</span>
+            </h1>
+            <span class="inline-block bg-amber-100/70 text-cafe-800 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">🐾 Encuentra tu propósito hoy</span>
+            <p class="text-stone-600 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+                Bienvenido a nuestro espacio seguro. Ya sea que busques el nuevo amor de tu vida o que estés rescatando y buscando un hogar feliz para un peludito, estás en el lugar correcto.
+            </p>
+        </section>
+
+
+        <!-- Cartas -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl px-2">
+            
+            <!--  ADOPTANTE -->
+            <div class="bg-white rounded-3xl border border-stone-200/80 p-8 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-2xl hover:border-cafe-200 hover:-translate-y-1 transition-all duration-300 group">
+                <div class="space-y-5">
+                    <div class="w-14 h-14 bg-amber-50 text-cafe-700 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-cafe-800 group-hover:text-white transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h2 class="text-2xl font-bold text-cafe-900 group-hover:text-cafe-700 transition-colors">Quiero Adoptar</h2>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Explora nuestro catálogo de perritos y gatitos que buscan una familia. Filtra por tamaño, edad o ubicación y comienza tu proceso de adopción responsable.
+                        </p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='Pagina de Inicio Adoptante.html'" class="mt-8 w-full bg-latte-100 hover:bg-cafe-600 text-cafe-800 hover:text-white font-semibold py-4 rounded-2xl transition-all duration-300 text-center text-sm shadow-sm flex items-center justify-center gap-2">
+                    Buscar mi compañero <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </button>
+            </div>
+
+            <!-- CEDENTE / RESCATISTA -->
+            <div class="bg-white rounded-3xl border border-stone-200/80 p-8 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-2xl hover:border-cafe-200 hover:-translate-y-1 transition-all duration-300 group">
+                <div class="space-y-5">
+                    <div class="w-14 h-14 bg-amber-50 text-cafe-700 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-cafe-800 group-hover:text-white transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-house-user"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h2 class="text-2xl font-bold text-cafe-900 group-hover:text-cafe-700 transition-colors">Cedente / Rescatista</h2>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Publica animales rescatados para darles una segunda oportunidad de vida. Gestiona de forma organizada tus publicaciones y aprueba solicitudes de adoptantes.
+                        </p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='Pagina de Registro e inicio de sesion.html'" class="mt-8 w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-4 rounded-2xl transition-all duration-300 text-center text-sm shadow-md shadow-cafe-900/10 flex items-center justify-center gap-2">
+                    Entrar como Administrador <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-white border-t border-latte-100 py-6 text-center text-xs text-stone-500 w-full mt-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p>&copy; 2026 PAW SITE. Hecho con <i class="fa-solid fa-heart text-amber-600"></i> para los animales.</p>
+            <div class="flex gap-4">
+                <div class="flex items-center gap-5 text-xl text-pet-500"> 
+                    <!-- Enlace a Instagram -->
+<a href="https://www.instagram.com/pawsite2026?igsh=a2F4ZDl3NGRianlm" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+    <i class="fa-brands fa-instagram"></i>
+</a> 
+
+<!-- Enlace a Facebook -->
+<a href="https://www.facebook.com/profile.php?id=61590693212306&rdid=WJ3HdioJNlmnoJ4v&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Tot5ztaeW%2F#" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+    <i class="fa-brands fa-facebook"></i>
+</a>
+
+<!-- Enlace a Twitter / X -->
+<a href="https://x.com/PawSite2026" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+    <i class="fa-brands fa-twitter"></i>
+</a>
+                
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - PAW SITE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        latte: {
+                            50: '#FDFBF7',  // Fondo crema ultra suave
+                            100: '#F4EFE6', // Arena claro
+                            200: '#E6DCC8', // Beige café con leche
+                        },
+                        cafe: {
+                            600: '#A07855', // Avellana suave
+                            700: '#8A5A36', // Terracota cálido
+                            800: '#51331E', // Chocolate amargo
+                            900: '#362214', // Café profundo chocolate
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-active {
+            border-bottom-color: #8A5A36;
+            color: #362214;
+        }
+        .tab-inactive {
+            border-bottom-color: transparent;
+            color: #57534e;
+        }
+    </style>
+</head>
+<body class="bg-latte-50 font-sans min-h-screen flex flex-col justify-between selection:bg-cafe-600 selection:text-white">
+
+    <!-- ================= NAVEGACIÓN ================= -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-latte-100 px-6 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="ini.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 bg-amber-100 text-cafe-700 rounded-xl flex items-center justify-center text-lg shadow-sm group-hover:bg-cafe-800 group-hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-paw"></i>
+                </div>
+                <span class="text-xl font-bold text-cafe-900 tracking-tight">Paw<span class="text-cafe-600 font-medium">Site</span></span>
+            </a>
+            
+            <div class="hidden sm:flex items-center gap-5">
+                <a href="ini.html" class="text-sm font-medium text-stone-600 hover:text-cafe-900 transition-colors">Inicio</a>
+                <a href="Adoptante.html" class="px-4 py-2 text-sm font-semibold text-cafe-800 bg-latte-100 hover:bg-cafe-900 hover:text-white rounded-xl transition-all duration-300">Mi Búsqueda</a>
+                
+                <span class="text-stone-300 hidden sm:inline font-light">|</span>
+
+                <button class="text-stone-400 hover:text-cafe-700 transition-colors p-2 relative group/bell" title="Notificaciones">
+                    <i class="fa-solid fa-bell text-lg"></i>
+                    <span class="absolute top-1.5 right-2 w-2 h-2 bg-cafe-700 rounded-full border border-white"></span>
+                </button>
+
+                <button class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Salir">
+                    <i class="fa-solid fa-door-open text-base"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= CONTENIDO PRINCIPAL ================= -->
+    <main class="flex-1 px-4 py-8 md:py-12 max-w-6xl mx-auto w-full">
+        
+        <!-- TARJETA DE PERFIL SUPERIOR -->
+        <section class="bg-white rounded-3xl border border-stone-200/80 p-8 md:p-12 shadow-sm mb-8">
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                
+                <!-- Avatar y Info Básica -->
+                <div class="flex flex-col items-center md:items-start gap-6 md:w-1/3">
+                    <div class="relative">
+                        <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 border-4 border-latte-100 flex items-center justify-center text-5xl text-cafe-700 shadow-lg">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <button class="absolute bottom-2 right-2 w-10 h-10 bg-cafe-700 hover:bg-cafe-800 text-white rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95">
+                            <i class="fa-solid fa-camera text-xs"></i>
+                        </button>
+                    </div>
+                    <button class="px-6 py-2 bg-latte-100 hover:bg-cafe-700 text-cafe-800 hover:text-white font-semibold rounded-xl transition-all duration-300 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-pen"></i> Editar Foto
+                    </button>
+                </div>
+
+                <!-- Información del Usuario -->
+                <div class="flex-1 md:w-2/3 space-y-6">
+                    <div class="space-y-2">
+                        <h1 class="text-3xl md:text-4xl font-bold text-cafe-900">Juan Carlos Rodríguez</h1>
+                        <p class="text-sm text-stone-500 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-cafe-600"></i>
+                            Madrid, España
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-latte-100 rounded-2xl p-4 text-center">
+                            <p class="text-2xl font-bold text-cafe-900">12</p>
+                            <p class="text-xs text-stone-600 mt-1">Adopciones</p>
+                        </div>
+                        <div class="bg-latte-100 rounded-2xl p-4 text-center">
+                            <p class="text-2xl font-bold text-cafe-900">4.8</p>
+                            <p class="text-xs text-stone-600 mt-1">Calificación</p>
+                        </div>
+                        <div class="bg-latte-100 rounded-2xl p-4 text-center">
+                            <p class="text-2xl font-bold text-cafe-900">48</p>
+                            <p class="text-xs text-stone-600 mt-1">Seguridores</p>
+                        </div>
+                        <div class="bg-latte-100 rounded-2xl p-4 text-center">
+                            <p class="text-2xl font-bold text-cafe-900">Verificado</p>
+                            <p class="text-xs text-cafe-600 mt-1 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed text-sm md:text-base">
+                        Amante de los animales con más de 5 años de experiencia en adopciones responsables. 
+                        Me encanta ayudar a encontrar hogares felices para nuestros peluditos. 
+                        Siempre busco el bienestar y la felicidad de cada mascota.
+                    </p>
+
+                    <div class="flex gap-3 pt-2">
+                        <button class="px-6 py-2 bg-cafe-800 hover:bg-cafe-900 text-white font-semibold rounded-xl transition-all duration-300 text-sm flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-pen"></i> Editar Perfil
+                        </button>
+                        <button class="px-6 py-2 bg-latte-100 hover:bg-stone-200 text-cafe-800 font-semibold rounded-xl transition-all duration-300 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-share-nodes"></i> Compartir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑAS DE CONTENIDO -->
+        <section class="space-y-6">
+            
+            <!-- Botones de Navegación (Tabs) -->
+            <div class="flex border-b border-stone-200/80 gap-8 overflow-x-auto">
+                <button onclick="showTab('adopciones')" class="tab-active pb-3 border-b-2 font-semibold text-sm md:text-base transition-all whitespace-nowrap">
+                    <i class="fa-solid fa-heart mr-2"></i>Mis Adopciones
+                </button>
+                <button onclick="showTab('favoritos')" class="tab-inactive pb-3 border-b-2 font-semibold text-sm md:text-base transition-all hover:text-cafe-800 whitespace-nowrap">
+                    <i class="fa-solid fa-star mr-2"></i>Favoritos
+                </button>
+                <button onclick="showTab('solicitudes')" class="tab-inactive pb-3 border-b-2 font-semibold text-sm md:text-base transition-all hover:text-cafe-800 whitespace-nowrap">
+                    <i class="fa-solid fa-file-contract mr-2"></i>Solicitudes
+                </button>
+                <button onclick="showTab('ajustes')" class="tab-inactive pb-3 border-b-2 font-semibold text-sm md:text-base transition-all hover:text-cafe-800 whitespace-nowrap">
+                    <i class="fa-solid fa-gear mr-2"></i>Ajustes
+                </button>
+            </div>
+
+            <!-- CONTENIDO: MIS ADOPCIONES -->
+            <div id="adopciones" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Tarjeta de Mascota 1 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <i class="fa-solid fa-dog text-cafe-600"></i>
+                        <span class="absolute top-3 right-3 bg-cafe-700 text-white px-3 py-1 rounded-full text-xs font-semibold">Adoptado</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-cafe-900">Max</h3>
+                            <p class="text-xs text-stone-500">Golden Retriever • 2 años</p>
+                        </div>
+                        <p class="text-sm text-stone-600 leading-relaxed">
+                            Mi compañero perfecto. Es increíblemente cariñoso y nos ha traído tanta alegría a la familia.
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-xs text-stone-600 ml-2">5.0</span>
+                        </div>
+                        <button class="w-full mt-3 py-2 bg-latte-100 hover:bg-cafe-700 text-cafe-800 hover:text-white font-semibold rounded-lg transition-all text-sm">
+                            Ver detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Mascota 2 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <i class="fa-solid fa-cat text-cafe-600"></i>
+                        <span class="absolute top-3 right-3 bg-cafe-700 text-white px-3 py-1 rounded-full text-xs font-semibold">Adoptado</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-cafe-900">Luna</h3>
+                            <p class="text-xs text-stone-500">Gato Persa • 1 año</p>
+                        </div>
+                        <p class="text-sm text-stone-600 leading-relaxed">
+                            Gatita dulce y tranquila. Perfecta para un hogar tranquilo. Muy independiente pero cariñosa.
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-300"><i class="fa-solid fa-star"></i></span>
+                            <span class="text-xs text-stone-600 ml-2">4.0</span>
+                        </div>
+                        <button class="w-full mt-3 py-2 bg-latte-100 hover:bg-cafe-700 text-cafe-800 hover:text-white font-semibold rounded-lg transition-all text-sm">
+                            Ver detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Mascota 3 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <i class="fa-solid fa-fish text-cafe-600"></i>
+                        <span class="absolute top-3 right-3 bg-cafe-700 text-white px-3 py-1 rounded-full text-xs font-semibold">Adoptado</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-cafe-900">Nemo</h3>
+                            <p class="text-xs text-stone-500">Pez Betta • 6 meses</p>
+                        </div>
+                        <p class="text-sm text-stone-600 leading-relaxed">
+                            Un pez colorido y activo. Requiere poco cuidado pero mucha admiración. ¡Un pequeño tesoro!
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-xs text-stone-600 ml-2">5.0</span>
+                        </div>
+                        <button class="w-full mt-3 py-2 bg-latte-100 hover:bg-cafe-700 text-cafe-800 hover:text-white font-semibold rounded-lg transition-all text-sm">
+                            Ver detalles
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTENIDO: FAVORITOS (oculto por defecto) -->
+            <div id="favoritos" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Tarjeta de Favorito 1 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-yellow-100 to-amber-100 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <i class="fa-solid fa-dog text-cafe-600"></i>
+                        <button class="absolute top-3 right-3 w-10 h-10 bg-white/90 hover:bg-white text-cafe-700 rounded-full flex items-center justify-center shadow-md transition-all">
+                            <i class="fa-solid fa-heart text-red-500"></i>
+                        </button>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-cafe-900">Rocky</h3>
+                            <p class="text-xs text-stone-500">Pastor Alemán • 3 años</p>
+                        </div>
+                        <p class="text-sm text-stone-600 leading-relaxed">
+                            Perro noble y leal. Busca un hogar con espacio y actividad. Ideal para familias activas.
+                        </p>
+                        <button class="w-full mt-3 py-2 bg-cafe-800 hover:bg-cafe-900 text-white font-semibold rounded-lg transition-all text-sm">
+                            Ver perfil completo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Favorito 2 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <i class="fa-solid fa-cat text-cafe-600"></i>
+                        <button class="absolute top-3 right-3 w-10 h-10 bg-white/90 hover:bg-white text-cafe-700 rounded-full flex items-center justify-center shadow-md transition-all">
+                            <i class="fa-solid fa-heart text-red-500"></i>
+                        </button>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-cafe-900">Miau</h3>
+                            <p class="text-xs text-stone-500">Gato Siamés • 2 años</p>
+                        </div>
+                        <p class="text-sm text-stone-600 leading-relaxed">
+                            Gato social y juguetón. Adora la compañía humana. Perfecto para apartamentos.
+                        </p>
+                        <button class="w-full mt-3 py-2 bg-cafe-800 hover:bg-cafe-900 text-white font-semibold rounded-lg transition-all text-sm">
+                            Ver perfil completo
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTENIDO: SOLICITUDES (oculto por defecto) -->
+            <div id="solicitudes" class="hidden space-y-4">
+                
+                <!-- Solicitud 1 -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex gap-4 flex-1">
+                            <div class="w-20 h-20 rounded-xl bg-amber-100 flex items-center justify-center text-3xl text-cafe-700">
+                                <i class="fa-solid fa-dog"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-cafe-900">Max - Solicitud Pendiente</h3>
+                                <p class="text-sm text-stone-600">Enviada hace 2 días</p>
+                                <p class="text-sm text-stone-500 mt-2">
+                                    <i class="fa-solid fa-user mr-2"></i>
+                                    Solicitud de: María González
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 w-full md:w-auto">
+                            <button class="flex-1 md:flex-initial px-6 py-2 bg-cafe-700 hover:bg-cafe-800 text-white font-semibold rounded-lg transition-all text-sm">
+                                <i class="fa-solid fa-check mr-1"></i> Aprobar
+                            </button>
+                            <button class="flex-1 md:flex-initial px-6 py-2 bg-stone-200 hover:bg-stone-300 text-cafe-900 font-semibold rounded-lg transition-all text-sm">
+                                <i class="fa-solid fa-times mr-1"></i> Rechazar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solicitud 2 (Aprobada) -->
+                <div class="bg-white rounded-2xl border border-green-200 p-6 shadow-sm">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex gap-4 flex-1">
+                            <div class="w-20 h-20 rounded-xl bg-pink-100 flex items-center justify-center text-3xl text-cafe-700">
+                                <i class="fa-solid fa-cat"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-cafe-900">Luna - Solicitud Aprobada</h3>
+                                <p class="text-sm text-green-600 font-semibold">✓ Aprobada hace 5 días</p>
+                                <p class="text-sm text-stone-500 mt-2">
+                                    <i class="fa-solid fa-user mr-2"></i>
+                                    Solicitud de: Carlos López
+                                </p>
+                            </div>
+                        </div>
+                        <span class="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-semibold">
+                            <i class="fa-solid fa-check-circle mr-1"></i> Completada
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Solicitud 3 (Rechazada) -->
+                <div class="bg-white rounded-2xl border border-red-200 p-6 shadow-sm">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex gap-4 flex-1">
+                            <div class="w-20 h-20 rounded-xl bg-blue-100 flex items-center justify-center text-3xl text-cafe-700">
+                                <i class="fa-solid fa-fish"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-cafe-900">Nemo - Solicitud Rechazada</h3>
+                                <p class="text-sm text-red-600 font-semibold">✗ Rechazada hace 3 días</p>
+                                <p class="text-sm text-stone-500 mt-2">
+                                    <i class="fa-solid fa-user mr-2"></i>
+                                    Solicitud de: Ana García
+                                </p>
+                            </div>
+                        </div>
+                        <span class="px-4 py-2 bg-red-100 text-red-700 rounded-lg text-sm font-semibold">
+                            <i class="fa-solid fa-times-circle mr-1"></i> Rechazada
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTENIDO: AJUSTES (oculto por defecto) -->
+            <div id="ajustes" class="hidden space-y-6 max-w-2xl">
+                
+                <!-- Sección: Información Personal -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 p-8 shadow-sm">
+                    <h2 class="text-2xl font-bold text-cafe-900 mb-6 pb-4 border-b border-latte-100">Información Personal</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-cafe-900 mb-2">Nombre Completo</label>
+                                <input type="text" value="Juan Carlos Rodríguez" class="w-full px-4 py-2 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-cafe-900 mb-2">Email</label>
+                                <input type="email" value="juan.rodriguez@email.com" class="w-full px-4 py-2 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-cafe-900 mb-2">Teléfono</label>
+                                <input type="tel" value="+34 612 345 678" class="w-full px-4 py-2 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-cafe-900 mb-2">Ubicación</label>
+                                <input type="text" value="Madrid, España" class="w-full px-4 py-2 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-600 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-cafe-900 mb-2">Biografía</label>
+                            <textarea rows="4" class="w-full px-4 py-2 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-600 focus:border-transparent">Amante de los animales con más de 5 años de experiencia en adopciones responsables.</textarea>
+                        </div>
+                    </div>
+
+                    <button class="mt-6 px-6 py-2 bg-cafe-800 hover:bg-cafe-900 text-white font-semibold rounded-lg transition-all">
+                        <i class="fa-solid fa-save mr-2"></i> Guardar Cambios
+                    </button>
+                </div>
+
+                <!-- Sección: Privacidad y Seguridad -->
+                <div class="bg-white rounded-2xl border border-stone-200/80 p-8 shadow-sm">
+                    <h2 class="text-2xl font-bold text-cafe-900 mb-6 pb-4 border-b border-latte-100">Privacidad y Seguridad</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-latte-50 rounded-lg">
+                            <div>
+                                <p class="font-semibold text-cafe-900">Perfil Público</p>
+                                <p class="text-sm text-stone-600">Permite que otros usuarios vean tu perfil</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div class="w-11 h-6 bg-stone-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cafe-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cafe-700"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-latte-50 rounded-lg">
+                            <div>
+                                <p class="font-semibold text-cafe-900">Recibir Notificaciones</p>
+                                <p class="text-sm text-stone-600">Notificaciones sobre actividad en tus adopciones</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div class="w-11 h-6 bg-stone-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cafe-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cafe-700"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-latte-100">
+                        <p class="font-semibold text-cafe-900 mb-4">Cambiar Contraseña</p>
+                        <button class="px-6 py-2 bg-latte-100 hover:bg-stone-200 text-cafe-800 font-semibold rounded-lg transition-all">
+                            <i class="fa-solid fa-lock mr-2"></i> Cambiar Contraseña
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sección: Zona de Peligro -->
+                <div class="bg-white rounded-2xl border border-red-200 p-8 shadow-sm">
+                    <h2 class="text-2xl font-bold text-red-600 mb-6 pb-4 border-b border-red-100">Zona de Peligro</h2>
+                    
+                    <div class="space-y-4">
+                        <p class="text-sm text-stone-600">
+                            Las acciones en esta sección son irreversibles. Por favor, procede con cuidado.
+                        </p>
+                        <button class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all">
+                            <i class="fa-solid fa-trash mr-2"></i> Eliminar Cuenta
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-white border-t border-latte-100 py-6 text-center text-xs text-stone-500 w-full mt-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p>&copy; 2026 PAW SITE. Hecho con <i class="fa-solid fa-heart text-amber-600"></i> para los animales.</p>
+            <div class="flex gap-4">
+                <div class="flex items-center gap-5 text-xl text-pet-500"> 
+                    <a href="https://www.instagram.com/pawsite2026?igsh=a2F4ZDl3NGRianlm" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a> 
+                    <a href="https://www.facebook.com/profile.php?id=61590693212306&rdid=WJ3HdioJNlmnoJ4v&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Tot5ztaeW%2F#" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://x.com/PawSite2026" target="_blank" rel="noopener noreferrer" class="hover:text-pet-600 transition-colors">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script>
+        function showTab(tabName) {
+            // Ocultar todos los tabs
+            const tabs = document.querySelectorAll('[id="adopciones"], [id="favoritos"], [id="solicitudes"], [id="ajustes"]');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // Mostrar el tab seleccionado
+            document.getElementById(tabName).classList.remove('hidden');
+
+            // Actualizar estilos de botones
+            const buttons = document.querySelectorAll('button[onclick^="showTab"]');
+            buttons.forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('tab-inactive');
+            });
+            event.target.closest('button').classList.remove('tab-inactive');
+            event.target.closest('button').classList.add('tab-active');
+        }
+    </script>
+
+</body>
+</html>
