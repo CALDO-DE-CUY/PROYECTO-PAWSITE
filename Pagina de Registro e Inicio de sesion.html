@@ -30,7 +30,11 @@
 </head>
 <body class="bg-stone-100 min-h-screen flex items-center justify-center p-4">
 
-    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-xl max-w-md w-full transition-all">
+    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-xl max-w-md w-full transition-all relative">
+        
+        <a href="ini.html" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 transition-all p-1.5 rounded-full hover:bg-stone-50" title="Volver al inicio">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </a>
         
         <!--  PANEL DE INICIO DE SESIÓN  -->
         <div id="login-panel" class="space-y-6">
@@ -53,12 +57,12 @@
                         <button type="button" onclick="switchPanel('forgot')" class="text-xs text-stone-500 hover:text-cafe-700 transition-all font-medium">¿La olvidaste?</button>
                     </div>
                     <input type="password" oninput="resetStyle(this)" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-cafe-600 focus:ring-1 focus:ring-cafe-600 transition-all bg-stone-50/50" placeholder="••••••••">
-                </div>
-                <button type="submit" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 shadow-cafe-900/10">
+                </div> 
+                 
+                  <button type="submit" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 shadow-cafe-900/10">
                     Iniciar Sesión
-                </button>
-
-
+                 </button>
+                
 
             </form>
 
@@ -159,7 +163,7 @@
             });
 
             if (isValid) {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'Rescatistas.html';
             }
         }
 
