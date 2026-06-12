@@ -46,7 +46,8 @@
                 <span class="absolute top-1.5 right-2 w-2 h-2 bg-cafe-700 rounded-full border border-white"></span>
             </button>
 
-            <button onclick="toggleModal('modal-perfil-simulado')" class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Mi Perfil">
+            
+            <button onclick="window.location.href='P vacio.html'" class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Mi Perfil">
                 <i class="fa-solid fa-user text-base"></i>
             </button>
 
@@ -65,7 +66,6 @@
                     <option value="todos">Especie</option>
                     <option value="perro">🐶 Perros</option>
                     <option value="gato">🐱 Gatos</option>
-                    <option value="Erizo">Erizo</option>
                 </select>
 
                 <!-- Filtro Raza -->
@@ -109,14 +109,296 @@
 
         <!-- CONTENEDOR DE TARJETAS -->
         <div id="pets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Jason T -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Jason" data-especie="gato" data-raza="mestizo / criollo" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="Jason.jpeg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Jason</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 1 año </span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            ¿Sientes que a tu vida le falta emoción? ¿Tu casa está demasiado silenciosa? ¡Tenemos la solución perfecta! Te presentamos a Jason, el gatito mitad naranja y mitad blanco que viene con la batería recargada al 200% y listo para hacerte sonreír todos los días.
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Jason')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Jason <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div> 
 
+            <!-- kitty T -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="kitty" data-especie="gato" data-raza="mestizo / criollo" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="kitty.jpeg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Kitty</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 3 años </span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Kitty parece una elegante panterita, ¡pero mira de cerca! Su pelaje es una combinación mágica de negro con hermosos destellos naranjas que la hacen única en el mundo. Es una gatita "besada por el sol" y por el fuego, con un diseño exclusivo que no verás en ningún otro michi.
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('kitty')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a kitty<i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>  
+              <!-- Wuerito T -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Wuerito" data-especie="gato" data-raza="mestizo / criollo" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="Wuero.jpg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Wuerito</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 4 años </span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Si estás buscando un compañero que parezca salido de un cuento de hadas, ¡tienes que conocer a Wuerito! Este precioso gatito blanco como la nieve y con unos ojos azules tan profundos como el mar está listo para encontrar a su familia para siempre.
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Wuerito')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Wuerito <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div> 
+
+            <!--Michiru T-->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Michiru" data-especie="gato" data-raza="mestizo / criollo" data-edad="Adulto">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="Michiru.jpg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Michiru</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 4 años </span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Hay gatas que simplemente tienen un aura especial, y Michiru es una de ellas. Con un nombre que evoca elegancia y serenidad, esta preciosa felina está lista para encontrar a su familia definitiva y llenar su nuevo hogar de paz, gracia y muchos ronroneos.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Michiru')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Michiru <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>
+             
+             <!--Jibril T-->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Jibril" data-especie="gato" data-raza="mestizo / criollo"data-edad="adulto">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="Jibril.jpg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Jibril</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Meztizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 6 años</span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Dicen que las gatas tricolores traen armonía y felicidad a las casas que habitan, ¡y Jibril está lista para demostrarlo! Esta preciosa jovencita busca una familia definitiva que le dé todo el amor que se merece.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Jibril')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Jibril <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>  
+
+             <!-- Capucha T-->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Capucha" data-especie="gato" data-raza="mestizo / criollo" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="IMG_20230429_133215.jpg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Capucha</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 3 años </span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            ¿Quién es esta pequeña enmascarada que viene a robarse tu corazón? ¡Es Capucha! Una hermosa gatita blanco con negro que parece llevar un traje de gala y un antifaz listos para la aventura.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Capucha')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Capucha <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>
+             
+            <!-- SAE T -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Saeyoung Dicaprimiau 3ro" data-especie="gato" data-raza="mestizo / criollo" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="Sae.jpeg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Saeyoung</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizo</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 5 años </span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            ¿Buscas un compañero que llene tu casa de amor... y que también ocupe un buen espacio en el sillón? ¡Te presentamos a Saeyoung! Este guapetón mitad naranja y mitad blanco es el rey de los corazones (y de las siestas).
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Saeyoung')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Saeyoung <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div> 
+
+            <!-- Opy -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Opy" data-especie="perro" data-raza="chihuahua" data-edad="cachorro">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="Opy.jpeg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm"> 🐶 Perro </span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Opy</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Chihuahua</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 3 Meses</span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            ¿Quién dice que el amor no se puede medir en centímetros? ¡Te presentamos a Opy! Un precioso perrito chihuahua que está listo para convertirse en el dueño de tus quincenas, de tu sofá y de tu corazó
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Opy')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Opy <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>  
+
+             <!-- Greta y Taco -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="Greta y Taco" data-especie="gato" data-raza="mestizo / criollo" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="IMG-20260610-WA0035.jpg" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Greta y Taco</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Mestizos</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 2 años</span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Greta 🌸: Es una gatita curiosa y observadora. Le encanta explorar cada rincón y es la primera en iniciar las sesiones de juego. 
+                            Taco 🌮: Su nombre lo dice todo: ¡es un sazón de alegría! Un poco más tímida al principio, pero en cuanto ve un juguete o a su hermana Greta, se suelta por completo. 
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Greta y Taco')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Greta y Taco <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>  
+            
+            <!-- Milo -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="milo" data-especie="perro" data-raza="golden retriever" data-edad="joven">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐶 Perro</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Milo</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Golden Retriever</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 1 Año y medio</span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Milo es pura energía y dulzura. Le fascina correr por el césped, atrapar pelotas y acurrucarse en tus pies mientras lees un libro. Es sumamente sociable.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Milo')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Milo <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Luna -->
+            <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                 data-nombre="luna" data-especie="gato" data-raza="siamés mix" data-edad="cachorro">
+                <div>
+                    <div class="h-64 bg-stone-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Mascota" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐱 Gato</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-2xl font-bold text-cafe-900">Luna</h3>
+                            <span class="text-xs font-medium text-stone-500 bg-latte-100 px-2.5 py-1 rounded-md">Siamés Mix</span>
+                        </div>
+                        <span class="inline-block bg-amber-50 text-cafe-700 text-xs font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-cake-candles mr-1"></i> 8 Meses</span>
+                        <p class="text-stone-600 text-sm leading-relaxed pt-2">
+                            Luna es una pequeña exploradora, silenciosa y muy observadora. Tiene unos ojos azules profundos que te enamorarán. Adora los lugares altos y los mimos suaves en la barbilla.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="openAdoptionForm('Luna')" class="w-full bg-cafe-800 hover:bg-cafe-900 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-300 shadow-md shadow-cafe-900/5">
+                        Adoptar a Luna <i class="fa-solid fa-heart ml-1.5 text-xs"></i>
+                    </button>
+                </div>
+            </div>  
+                    
 
             <!-- Pancho -->
             <div class="pet-card bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                  data-nombre="pancho" data-especie="perro" data-raza="mestizo / criollo" data-edad="adulto">
                 <div>
                     <div class="h-64 bg-stone-200 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1535268647977-a403b69fc756?auto=format&fit=crop&q=80&w=600" alt="Mascota" class="w-full h-full object-cover">
+                        <img src="https://hips.hearstapps.com/es.h-cdn.co/teleprogramaes/images/famosos-television/2016/mayo/muere-pancho-el-perro-de-la-tele/10653096-1-esl-ES/muere-a-los-16-anos-pancho-el-perro-mas-famoso-de-la-tele.jpg?resize=980:*" alt="Mascota" class="w-full h-full object-cover">
                         <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-cafe-800 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">🐶 Perro</span>
                     </div>
                     <div class="p-6 space-y-3">
