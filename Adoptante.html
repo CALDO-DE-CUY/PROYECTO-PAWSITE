@@ -36,8 +36,8 @@
             
             <!-- Logo -->
             <a href="ini.html" class="flex items-center gap-2.5 group shrink-0">
-                <div class="w-9 h-9 bg-amber-100 text-cafe-700 rounded-xl flex items-center justify-center text-base shadow-sm group-hover:bg-cafe-800 group-hover:text-white transition-all duration-300">
-                    <i class="fa-solid fa-paw"></i>
+                <div class="w-9 h-9 bg-amber-100 text-cafe-700 rounded-xl flex items-center justify-center overflow-hidden shadow-sm group-hover:bg-cafe-800 transition-all duration-300">
+                    <img src="images/logo.jpeg" alt="Logo PawSite" class="w-full h-full object-cover">
                 </div>
                 <span class="text-lg font-bold text-cafe-900 tracking-tight">Paw<span class="text-cafe-600 font-medium">Site</span></span>
             </a>
@@ -46,7 +46,7 @@
                 <span class="absolute top-1.5 right-2 w-2 h-2 bg-cafe-700 rounded-full border border-white"></span>
             </button>
 
-            <button onclick="toggleModal('modal-perfil-simulado')" class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Mi Perfil">
+            <button onclick="goToPerfil()" class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-100 text-cafe-700 border border-amber-200/60 transition-all active:scale-95 focus:outline-none shadow-sm" title="Mi Perfil">
                 <i class="fa-solid fa-user text-base"></i>
             </button>
 
@@ -334,6 +334,17 @@
         function resetStyle(input) {
             input.classList.remove('border-red-500', 'focus:border-red-500');
             input.classList.add('border-stone-200', 'focus:border-cafe-600');
+        }
+
+        function goToPerfil() {
+            const loggedIn = localStorage.getItem('pawsite_logged_in') === 'true';
+            const role = localStorage.getItem('pawsite_user_role');
+            if (loggedIn && role === 'adoptante') {
+                window.location.href = 'Perfil.html';
+            } else {
+                localStorage.setItem('pawsite_redirect_after_login', 'Perfil.html');
+                window.location.href = 'Pagina de Inicio Adoptante.html';
+            }
         }
     </script>
 </body>

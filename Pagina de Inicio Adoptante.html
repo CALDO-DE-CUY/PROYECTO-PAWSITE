@@ -154,7 +154,19 @@
             });
 
             if (isValid) {
-                window.location.href = 'Adoptante.html';
+                localStorage.setItem('pawsite_logged_in', 'true');
+                localStorage.setItem('pawsite_user_role', 'adoptante');
+
+                if (panelId === 'register-panel') {
+                    const nameInput = panel.querySelector('input[type="text"]');
+                    if (nameInput && nameInput.value.trim()) {
+                        localStorage.setItem('pawsite_user_name', nameInput.value.trim());
+                    }
+                }
+
+                const destination = localStorage.getItem('pawsite_redirect_after_login') || 'Adoptante.html';
+                localStorage.removeItem('pawsite_redirect_after_login');
+                window.location.href = destination;
             }
         }
 

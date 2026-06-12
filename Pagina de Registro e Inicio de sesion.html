@@ -163,6 +163,8 @@
             });
 
             if (isValid) {
+                localStorage.setItem('pawsite_logged_in', 'true');
+                localStorage.setItem('pawsite_user_role', 'rescatista');
                 window.location.href = 'Rescatistas.html';
             }
         }
